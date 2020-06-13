@@ -1,0 +1,23 @@
+Bootstrap: library
+From: debian:10
+
+%post
+    apt-get update
+    apt-get install -y '*insighttoolkit*' build-essential cmake git curl
+    mkdir /tmp/singularity-greedy-build && cd /tmp/singularity-greedy-build
+    mkdir build
+    git clone https://github.com/pyushkevich/greedy greedy
+    cd build
+    cmake -D CMAKE_BUILD_TYPE=Release ../greedy
+    make -j 8
+    make install
+    cd ..
+
+    curl -LO https://downloads.sourceforge.net/project/c3d/c3d/Nightly/c3d-nightly-Linux-x86_64.tar.gz
+    tar xzf ./c3d-nightly-Linux-x86_64.tar.gz
+    cd c3d-*-x86_64
+    cp bin/* /usr/local/bin
+
+%help
+    This container provides the "greedy" image registration tool and c3d
+    utiltiies
