@@ -1,11 +1,3 @@
-This definition file provides a recipe for building a container with
-[greedy](https://sites.google.com/view/greedyreg/home) installed.  Greedy i
-
-This provides a definition file for building 
-a [singularity](https://sylabs.io/singularity/) container with 
-[greedy](https://sites.google.com/view/greedyreg/about) installed.  Greedy is 
-a tool for medical image registration but
-
 This is a [singularity](https://sylabs.io/singularity/) definition file for 
 [greedy](https://sites.google.com/view/greedyreg/home), a tool for deformable 
 registration of medical imaging.  It also provides `c3d_affine_tool` from 
